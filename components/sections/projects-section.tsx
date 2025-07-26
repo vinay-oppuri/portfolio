@@ -33,7 +33,7 @@ export default function ProjectsSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-5 md:p-0">
           {projectsData.map((project, index) => (
             <motion.div
               key={index}
@@ -43,7 +43,7 @@ export default function ProjectsSection() {
               viewport={{ once: true, amount: 0.3 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="h-full flex flex-col overflow-hidden hover:shadow-xl transition-shadow duration-300">
+              <Card className="h-full flex flex-col overflow-hidden hover:scale-103 transition-all duration-300">
                 <CardHeader>
                   <div className="relative aspect-video w-full mb-4">
                     <Image

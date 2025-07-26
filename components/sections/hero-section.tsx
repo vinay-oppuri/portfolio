@@ -7,6 +7,7 @@ import { motion } from "framer-motion"
 import type { Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 
 const FADE_DOWN_ANIMATION_VARIANTS: Variants = {
   hidden: { opacity: 0, y: -10 },
@@ -44,10 +45,10 @@ export default function HeroSection() {
           className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tighter leading-tight"
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          Hello, I&apos;m{" "}
-          <span className="text-primary bg-clip-text bg-gradient-to-r from-primary to-secondary">
-            Vinay Reddy
-          </span>
+          Hello!
+          <div className="text-primary">
+            I&apos;m Vinay Reddy
+          </div>
         </motion.h1>
 
         <motion.h2
@@ -93,8 +94,8 @@ export default function HeroSection() {
         <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 p-1.5 flex items-center justify-center">
           <div className="relative w-full h-full rounded-full overflow-hidden bg-background">
             <Image
-              src="/profile.png" // IMPORTANT: Add your profile picture to the /public folder and name it profile.png
-              alt="Vinay"
+              src="/somu.jpg"
+              alt="Vinay Reddy"
               fill
               style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 192px, 256px"
@@ -102,13 +103,6 @@ export default function HeroSection() {
             />
           </div>
         </div>
-        <motion.div
-          className="absolute -bottom-2 -right-2 w-16 h-16 bg-background rounded-full flex items-center justify-center text-4xl shadow-md"
-          animate={{ rotate: [0, 20, -10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, repeatType: "mirror" }}
-        >
-          👨‍💻
-        </motion.div>
       </motion.div>
     </section>
   )

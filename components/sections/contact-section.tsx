@@ -4,14 +4,14 @@
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { Copy } from "lucide-react"
+import { toast } from "sonner"
 
 export default function ContactSection() {
-  const email = "vinay.reddy@example.com" // Replace with your email
+  const email = "oppurivinay25@gmail.com"
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(email)
-    // Add a toast notification for better UX, e.g., using react-hot-toast
-    alert("Email copied to clipboard!")
+    toast.success("Email copied to clipboard!")
   }
 
   return (
@@ -23,18 +23,18 @@ export default function ContactSection() {
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+        <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-4">
           Get In Touch
         </h2>
-        <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
+        <p className="text-sm md:text-lg text-muted-foreground mb-8 max-w-xl mx-auto">
           I&apos;m currently open to new opportunities and collaborations. Feel free to reach out if you have a project in mind or just want to connect!
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href={`mailto:${email}`}>
-            <Button size="lg">Say Hello</Button>
+            <Button>Say Hello</Button>
           </a>
-          <Button size="lg" variant="outline" onClick={copyToClipboard}>
-            <Copy className="mr-2 h-4 w-4" /> Copy Email
+          <Button variant="outline" onClick={copyToClipboard} className="text-sm">
+            <Copy className="size-3 md:size-4" /> Copy Email
           </Button>
         </div>
       </motion.div>
