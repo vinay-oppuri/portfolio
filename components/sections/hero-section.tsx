@@ -54,7 +54,7 @@ export default function HeroSection() {
           className="mt-4 text-xl md:text-2xl font-semibold text-muted-foreground"
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
-          Full Stack Developer & GenAI Explorer
+          Full Stack Developer | GenAI Explorer
         </motion.h2>
 
         <motion.p
