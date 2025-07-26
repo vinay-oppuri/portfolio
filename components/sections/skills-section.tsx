@@ -21,10 +21,10 @@ export default function SkillsSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+          <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
             My Tech Stack
           </h2>
-          <p className="mt-3 text-lg text-muted-foreground">
+          <p className="mt-3 text-base md:text-lg text-muted-foreground">
             Technologies I use to build powerful and modern web applications.
           </p>
         </motion.div>
@@ -40,8 +40,8 @@ export default function SkillsSection() {
             <motion.li key={index} variants={cardVariants}>
               <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all duration-300">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <skill.icon className="h-6 w-6 text-primary" />
-                  <CardTitle className="text-base font-semibold">
+                  <skill.icon className="size-4 md:size-6 text-primary" />
+                  <CardTitle className="text-xs md:text-base font-semibold">
                     {skill.name}
                   </CardTitle>
                 </CardHeader>

@@ -9,6 +9,7 @@ import { Moon, Sun, Menu, X } from "lucide-react"
 import { navLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
+import Image from "next/image"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -38,8 +39,10 @@ export default function Header() {
     <>
       <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-xs px-0 md:px-20 md:py-2">
         <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-6">
-          <Link href="/" className="text-xl font-bold tracking-tight text-primary">
-            Vinay.Dev
+          <Link href="/" className="flex items-center text-xl font-bold">
+            <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-20 md:h-25 w-20 md:w-25"/>
+            <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-20 md:h-25 w-20 md:w-25"/>
+            <span className="text-2xl md:text-3xl text-orange-500">.AI</span>
           </Link>
 
           {/* Desktop Navigation */}

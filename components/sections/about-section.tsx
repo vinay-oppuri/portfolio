@@ -14,7 +14,7 @@ export default function AboutSection() {
         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
           About Me
         </h2>
-        <p className="text-lg text-muted-foreground leading-relaxed">
+        <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
           I&apos;m a dedicated software developer based in India, specializing in building (and occasionally designing) exceptional digital experiences. My focus is on creating responsive, high-performance full-stack applications with modern tools like Next.js and Tailwind CSS. I&apos;m also deeply interested in the practical applications of Generative AI, integrating tools like LangChain to build smarter, more capable software.
         </p>
       </motion.div>
