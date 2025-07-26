@@ -94,8 +94,8 @@ export default function HeroSection() {
         <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 p-1.5 flex items-center justify-center">
           <div className="relative w-full h-full rounded-full overflow-hidden bg-background">
             <Image
-              src="/somu.jpg"
-              alt="Vinay Reddy"
+              src="/profile.jpg"
+              alt="w"
               fill
               style={{ objectFit: "cover" }}
               sizes="(max-width: 768px) 192px, 256px"

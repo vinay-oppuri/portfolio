@@ -62,7 +62,7 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2">
             <Link href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
               <FaLinkedin className="size-5 text-muted-foreground hover:text-primary transition-colors" />
