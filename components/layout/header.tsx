@@ -64,7 +64,7 @@ export default function Header() {
 
         <div className="flex items-center gap-1">
           <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2">
-            <Link href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn">
+            <Link href="https://www.linkedin.com/in/vinay-reddy-9aa439295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
               <FaLinkedin className="size-5 text-muted-foreground hover:text-primary transition-colors" />
             </Link>
             <Link href="https://github.com/vinay-oppuri" target="_blank" aria-label="GitHub">
