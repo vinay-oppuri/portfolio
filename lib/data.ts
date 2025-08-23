@@ -32,13 +32,13 @@ export const skillsData = [
 
 export const projectsData = [
   {
-    title: "AI-Powered Content Generator",
+    title: "AI-Agent Meetings",
     description:
-      "A full-stack SaaS application that leverages Generative AI to create marketing copy, blog posts, and social media content. Built with Next.js, Stripe for payments, and the OpenAI API.",
-    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "OpenAI"],
-    imageUrl: "/placeholder.svg", // Replace with your project image, e.g., /project-1.png
-    liveUrl: "#",
-    githubUrl: "#",
+      "MeetAI lets users create AI agents to schedule meetings, generate post-meeting summaries, and answer follow-up questions once meetings are completed.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "TRPC", "GeminiAI", "Inngest", "ShadCN"],
+    imageUrl: "/",
+    liveUrl: "https://agents-meet-ai.vercel.app/",
+    githubUrl: "https://github.com/vinay-oppuri/genai",
   },
   {
     title: "Interactive Data Dashboard",
