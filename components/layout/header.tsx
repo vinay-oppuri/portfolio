@@ -84,7 +84,7 @@ export default function Header() {
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-2 px-3 py-2"
+                className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-1.5 p-3"
               >
                 <div className='flex items-center justify-center rounded-full'>
                   <Icon className="w-5 h-5" />
