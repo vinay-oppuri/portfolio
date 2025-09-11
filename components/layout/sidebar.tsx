@@ -24,16 +24,15 @@ export const Sidebar = () => {
                 </Button>
             </SheetTrigger>
 
-            <SheetContent side="left" className="w-[235px] p-3 bg-sidebar/80 backdrop-blur-xs text-white shadow-xl">
+            <SheetContent side="left" className="w-[235px] px-3 bg-sidebar/80 backdrop-blur-xs text-white shadow-xl">
 
-                <Link href="/" className="flex items-center justify-center px-7 py-3" onClick={handleClick}>
+                <Link href="/" className="flex items-center justify-center px-7 py-3 border-b" onClick={handleClick}>
                     <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-20 md:h-25 w-20 md:w-25" />
                     <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-20 md:h-25 w-20 md:w-25" />
                     <span className="text-2xl md:text-3xl font-bold text-orange-500">.AI</span>
                 </Link>
-
                 {/* Navigation */}
-                <nav className="flex flex-col gap-3">
+                <nav className="flex flex-col gap-3 mt-4">
                     {navLinks.map((item) => {
                         return (
                             <Link
@@ -54,7 +53,7 @@ export const Sidebar = () => {
                 </nav>
 
                 {/* Theme Toggle */}
-                <div className="mt-8 px-1 pt-6 border-t flex items-center justify-between text-sidebar-foreground">
+                <div className="mt-4 px-1 pt-6 border-t flex items-center justify-between text-sidebar-foreground">
                     <span className="text-sm font-medium">Theme</span>
                     <Button
                         variant="ghost"
