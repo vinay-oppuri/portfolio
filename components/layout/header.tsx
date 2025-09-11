@@ -4,13 +4,12 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import { useTheme } from "next-themes"
-import { Moon, Sun, Menu, X, MenuIcon } from "lucide-react"
-import { navLinks } from "@/lib/data"
+import { Moon, Sun } from "lucide-react"
+import { navLinks, BottomNavLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -58,7 +57,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-1">
-              <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2">
+              <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2 bg-muted">
                 <Link href="https://www.linkedin.com/in/vinay-reddy-9aa439295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
                   <FaLinkedin className="size-5 text-muted-foreground hover:text-primary transition-colors" />
                 </Link>
@@ -79,12 +78,12 @@ export default function Header() {
 
       <nav className="fixed bottom-2 left-2 right-2 z-50 md:hidden rounded-full border backdrop-blur-md bg-background/70 px-3">
         <div className="flex justify-between items-center">
-          {navLinks.map(({ href, icon: Icon, label: Label }) => {
+          {BottomNavLinks.map(({ href, icon: Icon, label: Label }) => {
             return (
               <Link
                 key={href}
                 href={href}
-                className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-1.5 p-3"
+                className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-1.5 px-4 py-3"
               >
                 <div className='flex items-center justify-center rounded-full'>
                   <Icon className="w-5 h-5" />

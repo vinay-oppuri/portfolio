@@ -23,6 +23,13 @@ export const navLinks = [
   { label: "Contact", href: "#contact", icon: MailIcon },
 ] as const
 
+export const BottomNavLinks = [
+  { label: "About", href: "#about", icon: UserIcon },
+  { label: "Skills", href: "#skills", icon: SettingsIcon },
+  { label: "Projects", href: "#projects", icon: FolderIcon},
+  { label: "Contact", href: "#contact", icon: MailIcon },
+] as const
+
 export const skillsData = [
   { name: "Next.js", icon: Layers },
   { name: "React", icon: Code },
