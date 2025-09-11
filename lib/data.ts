@@ -8,14 +8,19 @@ import {
   Cloud,
   Layers,
   Bot,
+  HomeIcon,
+  UserIcon,
+  SettingsIcon,
+  FolderIcon,
+  MailIcon,
 } from "lucide-react"
 
 export const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "#home", icon: HomeIcon },
+  { label: "About", href: "#about", icon: UserIcon },
+  { label: "Skills", href: "#skills", icon: SettingsIcon },
+  { label: "Projects", href: "#projects", icon: FolderIcon},
+  { label: "Contact", href: "#contact", icon: MailIcon },
 ] as const
 
 export const skillsData = [

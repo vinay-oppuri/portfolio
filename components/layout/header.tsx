@@ -9,15 +9,7 @@ import { navLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 import Image from "next/image"
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+import { Sidebar } from "./sidebar"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -78,25 +70,9 @@ export default function Header() {
             <ThemeToggle />
           </div>
 
-
-          <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
-            <DropdownMenuTrigger asChild className="md:hidden">
-              <Button variant="ghost" size="icon">
-                {isOpen ? <X className="size-4" /> : <MenuIcon className="size-4" />}
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent side="left" align="start" className="bg-sidebar/80 backdrop-blur-xs text-muted-foreground">
-                {navLinks.map((link) => (
-                  <Link key={link.label} href={link.href}>
-                    <DropdownMenuItem>
-                    {link.label}
-                    </DropdownMenuItem>
-                  </Link>
-                ))}
-              <DropdownMenuSeparator />
-              <DropdownMenuLabel className="flex items-center justify-between"><div>Theme</div><ThemeToggle/></DropdownMenuLabel>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="md:hidden flex items-center justify-center">
+            <Sidebar />
+          </div>
         </div>
       </div>
     </header>
