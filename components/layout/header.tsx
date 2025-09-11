@@ -9,12 +9,13 @@ import { navLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 import Image from "next/image"
-import { Sidebar } from "./sidebar"
+import { usePathname } from "next/navigation"
+import { cn } from "@/lib/utils"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
   const { theme, setTheme } = useTheme()
+  const pathname = usePathname()
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
@@ -33,48 +34,69 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-1 md:top-0 z-50 w-full bg-background/80 backdrop-blur-xs px-0 mx-1 md:px-20 md:py-2 rounded-full md:rounded-none not-md:border-2 overflow-hidden">
-      <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-6">
-        <Link href="/" className="flex items-center text-xl font-bold">
-          <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-20 md:h-25 w-20 md:w-25" />
-          <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-20 md:h-25 w-20 md:w-25" />
-          <span className="text-2xl md:text-3xl text-orange-500">.AI</span>
-        </Link>
+    <>
+      <div className="flex items-center justify-center overflow-hidden">
+        <header className="sticky z-50 w-full bg-background/80 backdrop-blur-xs px-0 mx-2 md:mx-0 mt-2 md:mt-0 md:px-20 md:py-2 rounded-full md:rounded-none not-md:border-2 overflow-hidden">
+          <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-6">
+            <Link href="/" className="flex items-center text-xl font-bold">
+              <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-20 md:h-25 w-20 md:w-25" />
+              <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-20 md:h-25 w-20 md:w-25" />
+              <span className="text-2xl md:text-3xl text-orange-500">.AI</span>
+            </Link>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center border-2 rounded-lg px-6 py-3 gap-6 text-sm font-medium">
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              className="text-foreground hover:border-b-2"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+            {/* Desktop Navigation */}
+            <nav className="hidden md:flex items-center border-2 rounded-lg px-6 py-3 gap-6 text-sm font-medium">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.label}
+                  href={link.href}
+                  className="text-foreground hover:border-b-2"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
 
-        <div className="flex items-center gap-1">
-          <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2">
-            <Link href="https://www.linkedin.com/in/vinay-reddy-9aa439295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
-              <FaLinkedin className="size-5 text-muted-foreground hover:text-primary transition-colors" />
-            </Link>
-            <Link href="https://github.com/vinay-oppuri" target="_blank" aria-label="GitHub">
-              <FaGithub className="size-5 text-muted-foreground hover:text-primary transition-colors" />
-            </Link>
-            <Link href="https://instagram.com/_v1nzy" target="_blank" aria-label="Instagram">
-              <FaInstagram className="size-5 text-muted-foreground hover:text-primary transition-colors" />
-            </Link>
+            <div className="flex items-center gap-1">
+              <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2">
+                <Link href="https://www.linkedin.com/in/vinay-reddy-9aa439295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
+                  <FaLinkedin className="size-5 text-muted-foreground hover:text-primary transition-colors" />
+                </Link>
+                <Link href="https://github.com/vinay-oppuri" target="_blank" aria-label="GitHub">
+                  <FaGithub className="size-5 text-muted-foreground hover:text-primary transition-colors" />
+                </Link>
+                <Link href="https://instagram.com/_v1nzy" target="_blank" aria-label="Instagram">
+                  <FaInstagram className="size-5 text-muted-foreground hover:text-primary transition-colors" />
+                </Link>
+              </div>
+              <div className="flex">
+                <ThemeToggle />
+              </div>
+            </div>
           </div>
-          <div className="hidden md:flex">
-            <ThemeToggle />
-          </div>
-
-          <div className="md:hidden flex items-center justify-center">
-            <Sidebar />
-          </div>
-        </div>
+        </header>
       </div>
-    </header>
+
+      <nav className="fixed bottom-2 left-2 right-2 z-50 md:hidden rounded-full border backdrop-blur-md bg-background/70 px-3">
+        <div className="flex justify-between items-center">
+          {navLinks.map(({ href, icon: Icon, label: Label }) => {
+            return (
+              <Link
+                key={href}
+                href={href}
+                className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-2 px-3 py-2"
+              >
+                <div className='flex items-center justify-center rounded-full'>
+                  <Icon className="w-5 h-5" />
+                </div>
+                <div className='flex items-center justify-center rounded-full' >
+                  {Label}
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+      </nav>
+    </>
   )
 }
