@@ -12,15 +12,11 @@ import SkillsSection from "@/components/sections/skills-section"
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-background">
-      <Header />
-      <main className="flex-grow">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
         <ProjectsSection />
         <ContactSection />
-      </main>
-      <Footer />
     </div>
   )
 }
