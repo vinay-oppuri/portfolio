@@ -36,11 +36,11 @@ export default function Header() {
     <>
       <div className="flex items-center justify-center overflow-hidden">
         <header className="sticky z-50 w-full bg-background/80 backdrop-blur-xs px-0 mx-2 md:mx-0 mt-2 md:mt-0 md:px-20 md:py-2 rounded-full md:rounded-none not-md:border-2 overflow-hidden">
-          <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4 md:px-6">
+          <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-6">
             <Link href="/" className="flex items-center text-xl font-bold">
-              <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-20 md:h-25 w-20 md:w-25" />
-              <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-20 md:h-25 w-20 md:w-25" />
-              <span className="text-2xl md:text-3xl text-orange-500">.AI</span>
+              <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-17 md:h-25 w-17 md:w-25" />
+              <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-17 md:h-25 w-17 md:w-25" />
+              <span className="text-xl md:text-3xl text-orange-500">.AI</span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -57,7 +57,7 @@ export default function Header() {
             </nav>
 
             <div className="flex items-center gap-1">
-              <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2 bg-muted">
+              <div className="flex items-center gap-3 border-2 rounded-full px-4 py-2">
                 <Link href="https://www.linkedin.com/in/vinay-reddy-9aa439295?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" aria-label="LinkedIn">
                   <FaLinkedin className="size-5 text-muted-foreground hover:text-primary transition-colors" />
                 </Link>
