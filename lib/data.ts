@@ -1,4 +1,3 @@
-// lib/data.ts
 import {
   Code,
   Paintbrush,
@@ -14,6 +13,7 @@ import {
   FolderIcon,
   MailIcon,
 } from "lucide-react"
+import { SiVercel } from "react-icons/si"
 
 export const navLinks = [
   { label: "Home", href: "#home", icon: HomeIcon },
@@ -39,7 +39,8 @@ export const skillsData = [
   { name: "MongoDB", icon: Database },
   { name: "LangChain", icon: Bot },
   { name: "GenAI APIs", icon: BrainCircuit },
-  { name: "Vercel / Docker", icon: Cloud },
+  { name: "Docker", icon: Cloud },
+  { name: "Vercel", icon: SiVercel },
 ] as const
 
 export const projectsData = [
