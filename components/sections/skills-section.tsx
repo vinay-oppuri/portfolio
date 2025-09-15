@@ -37,7 +37,7 @@ export default function SkillsSection() {
         >
           {skillsData.map((skill, index) => (
             <motion.li key={index} variants={cardVariants}>
-              <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all duration-300">
+              <Card className="h-full hover:shadow-lg hover:border-primary/50 hover:scale-103 transition-all duration-300">
                 <CardHeader className="flex flex-row items-center gap-4">
                   <skill.icon className="size-3 md:size-5 text-primary" />
                   <CardTitle className="text-xs md:text-sm font-semibold">

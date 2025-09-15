@@ -30,9 +30,13 @@ export default function ContactSection() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href={`mailto:${email}`}>
-            <Button>Say Hello</Button>
+            <Button
+              className="shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-103"
+            >
+              Say Hello
+            </Button>
           </a>
-          <Button variant="outline" onClick={copyToClipboard} className="text-sm">
+          <Button variant="outline" onClick={copyToClipboard} className="text-sm shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-103">
             <Copy className="size-3 md:size-4" /> Copy Email
           </Button>
         </div>
