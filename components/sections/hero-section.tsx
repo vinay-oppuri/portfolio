@@ -1,4 +1,3 @@
-// components/sections/hero-section.tsx
 "use client"
 
 import Image from "next/image"
@@ -25,7 +24,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="container max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-12 px-4 py-32 md:py-50"
+      className="container max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-12 px-4 py-20 md:py-32 mt-12"
     >
       {/* Left Column (Text Content) */}
       <motion.div
@@ -73,7 +72,7 @@ export default function HeroSection() {
         >
           <a href="/resume.pdf" download>
             <Button size="lg">
-              Download Resume <ArrowDown className="ml-2 h-4 w-4" />
+              Download Resume <ArrowDown className="size-4" />
             </Button>
           </a>
           <Link href="#contact">

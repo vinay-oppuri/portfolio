@@ -1,4 +1,3 @@
-// components/sections/skills-section.tsx
 "use client"
 
 import { motion } from "framer-motion"
@@ -40,8 +39,8 @@ export default function SkillsSection() {
             <motion.li key={index} variants={cardVariants}>
               <Card className="h-full hover:shadow-lg hover:border-primary/50 transition-all duration-300">
                 <CardHeader className="flex flex-row items-center gap-4">
-                  <skill.icon className="size-4 md:size-6 text-primary" />
-                  <CardTitle className="text-xs md:text-base font-semibold">
+                  <skill.icon className="size-3 md:size-5 text-primary" />
+                  <CardTitle className="text-xs md:text-sm font-semibold">
                     {skill.name}
                   </CardTitle>
                 </CardHeader>

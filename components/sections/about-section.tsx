@@ -1,4 +1,3 @@
-// components/sections/about-section.tsx
 import { motion } from "framer-motion"
 
 export default function AboutSection() {
