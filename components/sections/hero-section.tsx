@@ -6,7 +6,6 @@ import { motion } from "framer-motion"
 import type { Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ArrowDown } from "lucide-react"
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 
 const FADE_DOWN_ANIMATION_VARIANTS: Variants = {
   hidden: { opacity: 0, y: -10 },
@@ -67,7 +66,7 @@ export default function HeroSection() {
         </motion.p>
 
         <motion.div
-          className="mt-8 flex flex-wrap justify-center md:justify-start gap-4"
+          className="mt-8 flex flex-col md:flex-row justify-center md:justify-start gap-4"
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
           <a href="/resume.pdf" download>

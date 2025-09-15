@@ -41,7 +41,7 @@ export default function ProjectsSection() {
 
   return (
     <section id="projects" className="py-24 sm:py-32 bg-secondary/30">
-      <div className="container max-w-screen-xl mx-auto px-4">
+      <div className="container max-w-screen-xl mx-auto px-8 md:px-4">
         <motion.div
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -70,9 +70,9 @@ export default function ProjectsSection() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-card rounded-xl shadow-md overflow-hidden flex flex-col h-full hover:scale-[0.99] transition-all duration-300"
+                  className="bg-card rounded-xl border-2 overflow-hidden flex flex-col h-full hover:scale-[0.99] transition-all duration-300"
                 >
-                  <div className="relative aspect-video w-full">
+                  <div className="relative aspect-video w-full text-primary">
                     <Image
                       src={project.imageUrl}
                       alt={project.title}
@@ -81,9 +81,9 @@ export default function ProjectsSection() {
                     />
                   </div>
 
-                  <div className="p-4 flex flex-col flex-grow">
-                    <h3 className="text-lg font-semibold mb-2">{project.title}</h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
+                  <div className="p-4 flex flex-col flex-grow gap-2">
+                    <h3 className="text-base md:text-lg font-semibold mb-2">{project.title}</h3>
+                    <p className="text-muted-foreground text-xs md:text-sm leading-relaxed flex-grow">
                       {project.description}
                     </p>
 
@@ -99,14 +99,14 @@ export default function ProjectsSection() {
                       <Link
                         href={project.liveUrl}
                         target="_blank"
-                        className="flex items-center gap-1 text-sm text-primary hover:underline"
+                        className="flex items-center gap-1 text-xs md:text-sm text-primary hover:underline"
                       >
                         <ExternalLink className="h-4 w-4" /> Live Demo
                       </Link>
                       <Link
                         href={project.githubUrl}
                         target="_blank"
-                        className="flex items-center gap-1 text-sm text-primary hover:underline"
+                        className="flex items-center gap-1 text-xs md:text-sm text-primary hover:underline"
                       >
                         <Github className="h-4 w-4" /> Source Code
                       </Link>
