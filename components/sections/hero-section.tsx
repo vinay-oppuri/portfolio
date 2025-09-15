@@ -25,7 +25,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="container max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-12 px-4 py-20 md:py-32"
+      className="container max-w-screen-lg mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:justify-between gap-12 px-4 py-32 md:py-50"
     >
       {/* Left Column (Text Content) */}
       <motion.div

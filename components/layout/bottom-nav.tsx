@@ -3,7 +3,7 @@ import Link from "next/link"
 
 const BottomNav = () => {
     return (
-        <nav className="sticky bottom-1 w-full z-50 md:hidden rounded-full border backdrop-blur-md bg-background/70 px-3">
+        <nav className="fixed bottom-2 left-2 right-2  z-50 md:hidden rounded-full border backdrop-blur-md bg-background/70 px-3">
             <div className="flex justify-between items-center">
                 {BottomNavLinks.map(({ href, icon: Icon, label: Label }) => {
                     return (
