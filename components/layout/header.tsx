@@ -26,14 +26,14 @@ export default function Header() {
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
         aria-label="Toggle theme"
       >
-        {theme === "dark" ? (<Sun className="size-3.5 md:size-4 text-yellow-400" />) : (<Moon className="size-3.5 md:size-4 text-blue-600" />)}
+        {theme === "dark" ? (<Sun className="size-4 text-yellow-400" />) : (<Moon className="size-4 text-blue-600" />)}
       </Button>
     )
   }
 
   return (
     <header className="fixed z-50 top-2 md:top-0 right-2 md:right-0 left-2 md:left-0 bg-background/80 backdrop-blur-xs px-0 md:px-20 md:py-2 rounded-full md:rounded-none not-md:border-2 overflow-hidden">
-      <div className="container h-15 md:h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4">
+      <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4">
         <Link href="/" className="flex items-center text-xl font-bold px-2">
           <Image src='./light-logo.svg' alt="Logo" width={100} height={100} className="dark:hidden h-17 md:h-25 w-17 md:w-25" />
           <Image src='./dark-logo.svg' alt="Logo" width={100} height={100} className="not-dark:hidden h-17 md:h-25 w-17 md:w-25" />

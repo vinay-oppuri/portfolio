@@ -10,10 +10,10 @@ const BottomNav = () => {
                         <Link
                             key={href}
                             href={href}
-                            className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-1.5 px-4 py-2.5"
+                            className="flex flex-col items-center justify-center text-xs text-muted-foreground gap-1.5 px-4 py-3"
                         >
                             <div className='flex items-center justify-center rounded-full'>
-                                <Icon className="size-4.5" />
+                                <Icon className="w-5 h-5" />
                             </div>
                             <div className='flex items-center justify-center rounded-full' >
                                 {Label}
