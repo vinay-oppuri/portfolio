@@ -9,11 +9,18 @@ import { Button } from "@/components/ui/button"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
+import useSound from "use-sound"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
   const pathname = usePathname()
+  const [sound] = useSound("/click.wav")
+
+  const switchTheme = () => {
+    sound();
+    setTheme(theme === "dark" ? "light" : "dark")
+  }
 
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
@@ -23,7 +30,7 @@ export default function Header() {
       <Button
         variant="ghost"
         size="icon"
-        onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+        onClick={switchTheme}
         aria-label="Toggle theme"
       >
         {theme === "dark" ? (<Sun className="size-4 text-yellow-400" />) : (<Moon className="size-4 text-blue-600" />)}

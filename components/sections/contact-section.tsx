@@ -31,12 +31,12 @@ export default function ContactSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href={`mailto:${email}`}>
             <Button
-              className="shadow-lg shadow-primary/30 transition-all duration-300 hover:scale-103"
+              className="transition-all duration-300 hover:scale-103"
             >
               Say Hello
             </Button>
           </a>
-          <Button variant="outline" onClick={copyToClipboard} className="text-sm shadow-lg shadow-primary/10 transition-all duration-300 hover:scale-103">
+          <Button variant="outline" onClick={copyToClipboard} className="transition-all duration-300 hover:scale-103">
             <Copy className="size-3 md:size-4" /> Copy Email
           </Button>
         </div>

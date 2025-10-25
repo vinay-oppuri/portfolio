@@ -70,12 +70,12 @@ export default function HeroSection() {
           variants={FADE_DOWN_ANIMATION_VARIANTS}
         >
           <a href="/resume.pdf" download>
-            <Button size="lg" className="shadow-lg shadow-primary/30 transition-all duration-200 hover:scale-103">
+            <Button size="lg" className="transition-all duration-200 hover:scale-103">
               Download Resume <ArrowDown className="size-4" />
             </Button>
           </a>
           <Link href="#contact">
-            <Button size="lg" variant="outline" className="shadow-lg shadow-primary/10 transition-all duration-200 hover:scale-103">
+            <Button size="lg" variant="outline" className="transition-all duration-200 hover:scale-103">
               Contact Me
             </Button>
           </Link>
