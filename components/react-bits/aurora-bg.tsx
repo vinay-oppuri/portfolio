@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useCallback } from 'react';
 import { Renderer, Program, Mesh, Color, Triangle } from 'ogl';
 
 const VERT = `#version 300 es
@@ -122,7 +122,10 @@ export default function Aurora(props: AuroraProps) {
 
   const ctnDom = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
+  const initialColorStops = useRef(colorStops);
+  const initialBlend = useRef(blend);
+
+  const memoizedRenderer = useCallback(() => {
     const ctn = ctnDom.current;
     if (!ctn) return;
 
@@ -137,7 +140,22 @@ export default function Aurora(props: AuroraProps) {
     gl.blendFunc(gl.ONE, gl.ONE_MINUS_SRC_ALPHA);
     gl.canvas.style.backgroundColor = 'transparent';
 
-    let program: Program | undefined;
+    const colorStopsArray = initialColorStops.current.map(hex => {
+      const c = new Color(hex);
+      return [c.r, c.g, c.b];
+    });
+
+    const program = new Program(gl, {
+      vertex: VERT,
+      fragment: FRAG,
+      uniforms: {
+        uTime: { value: 0 },
+        uAmplitude: { value: amplitude },
+        uColorStops: { value: colorStopsArray },
+        uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
+        uBlend: { value: initialBlend.current }
+      }
+    });
 
     function resize() {
       if (!ctn) return;
@@ -155,23 +173,6 @@ export default function Aurora(props: AuroraProps) {
       delete geometry.attributes.uv;
     }
 
-    const colorStopsArray = colorStops.map(hex => {
-      const c = new Color(hex);
-      return [c.r, c.g, c.b];
-    });
-
-    program = new Program(gl, {
-      vertex: VERT,
-      fragment: FRAG,
-      uniforms: {
-        uTime: { value: 0 },
-        uAmplitude: { value: amplitude },
-        uColorStops: { value: colorStopsArray },
-        uResolution: { value: [ctn.offsetWidth, ctn.offsetHeight] },
-        uBlend: { value: blend }
-      }
-    });
-
     const mesh = new Mesh(gl, { geometry, program });
     ctn.appendChild(gl.canvas);
 
@@ -182,8 +183,8 @@ export default function Aurora(props: AuroraProps) {
       if (program) {
         program.uniforms.uTime.value = time * speed * 0.1;
         program.uniforms.uAmplitude.value = propsRef.current.amplitude ?? 1.0;
-        program.uniforms.uBlend.value = propsRef.current.blend ?? blend;
-        const stops = propsRef.current.colorStops ?? colorStops;
+        program.uniforms.uBlend.value = propsRef.current.blend ?? initialBlend.current;
+        const stops = propsRef.current.colorStops ?? initialColorStops.current;
         program.uniforms.uColorStops.value = stops.map((hex: string) => {
           const c = new Color(hex);
           return [c.r, c.g, c.b];
@@ -204,6 +205,11 @@ export default function Aurora(props: AuroraProps) {
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };
   }, [amplitude]);
+
+  useEffect(() => {
+    const cleanup = memoizedRenderer();
+    return cleanup;
+  }, [memoizedRenderer]);
 
   return <div ref={ctnDom} className="w-full h-full" />;
 }

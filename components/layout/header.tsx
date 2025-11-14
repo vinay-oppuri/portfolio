@@ -8,14 +8,12 @@ import { navLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
 import Image from "next/image"
-import { usePathname } from "next/navigation"
 import useSound from "use-sound"
 import GlassSurface from "../react-bits/GlassSurface"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-  const pathname = usePathname()
   const [sound] = useSound("/click.wav")
 
   const switchTheme = () => {
@@ -46,14 +44,14 @@ export default function Header() {
         {/* LOGO */}
         <Link href="/" className="flex items-center text-xl font-bold px-2">
           <Image
-            src='./light-logo.svg'
+            src='/light-logo.svg'
             alt="Logo"
             width={100}
             height={100}
             className="dark:hidden h-17 md:h-25 w-17 md:w-25"
           />
           <Image
-            src='./dark-logo.svg'
+            src='/dark-logo.svg'
             alt="Logo"
             width={100}
             height={100}
