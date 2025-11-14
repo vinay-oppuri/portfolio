@@ -40,7 +40,7 @@ export default function ProjectsSection() {
   }, [api])
 
   return (
-    <section id="projects" className="py-24 sm:py-32 bg-secondary/30">
+    <section id="projects" className="py-24 sm:py-32">
       <div className="container max-w-screen-xl mx-auto px-8 md:px-4">
         <motion.div
           className="text-center mb-12"
