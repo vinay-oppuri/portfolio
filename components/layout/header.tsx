@@ -26,19 +26,34 @@ export default function Header() {
 
   const ThemeToggle = () => {
     return (
+      <GlassSurface
+          width={33}
+          height={33}
+          borderRadius={26}
+          opacity={0.65}
+          brightness={80}
+          displace={6}
+          distortionScale={-120}
+          redOffset={12}
+          greenOffset={20}
+          blueOffset={28}
+          mixBlendMode="screen"
+        >
       <Button
         variant="ghost"
         size="icon"
         onClick={switchTheme}
         aria-label="Toggle theme"
+        className="rounded-full"
       >
         {theme === "dark" ? (<Sun className="size-4 text-yellow-400" />) : (<Moon className="size-4 text-blue-600" />)}
       </Button>
+      </GlassSurface>
     )
   }
 
   return (
-    <header className="fixed z-50 top-2 left-2 right-2 md:top-0 md:left-0 md:right-0 px-0 md:px-20 md:py-2">
+    <header className="fixed z-50 top-0 left-0 right-0 px-0 md:px-20 md:py-2 rounded-full md:border-none backdrop-blur-xs md:backdrop-blur-none">
       <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4">
 
         {/* LOGO */}
