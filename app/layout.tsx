@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased snap-y snap-mandatory h-screen overflow-y-scroll`} >
+      <body className={`${inter.className} antialiased h-screen overflow-y-scroll scroll-snap-y scroll-snap-mandatory`} >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Header />
           {children}

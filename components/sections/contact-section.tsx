@@ -14,7 +14,12 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="snap-start h-screen relative px-8 md:px-0 py-28 sm:py-36 overflow-hidden">
+    <motion.section
+      initial={{ opacity: 0, scale: 0.98, y: 20 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.5 }}
+      id="contact" className="snap-start h-screen relative px-8 md:px-0 py-28 sm:py-36 overflow-hidden">
       {/* Background Aurora Layers */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[800px] bg-[radial-gradient(circle_at_center,theme(colors.primary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow" />
@@ -54,7 +59,7 @@ export default function ContactSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href={`mailto:${email}`} className="w-full sm:w-auto">
             <Button
-              className="w-full sm:w-auto bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-xl hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.07] px-6 py-6 flex items-center gap-2"
+              className="w-full md:w-50 bg-gradient-to-r from-primary to-secondary text-white rounded-full shadow-xl hover:shadow-primary/40 transition-all duration-300 hover:scale-[1.07] px-6 py-6 flex items-center gap-2"
             >
               <Mail className="size-4" /> Say Hello
             </Button>
@@ -63,12 +68,12 @@ export default function ContactSection() {
           <Button
             variant="outline"
             onClick={copyToClipboard}
-            className="w-full sm:w-auto rounded-full border-white/20 backdrop-blur-md text-primary hover:border-primary/50 shadow-md hover:shadow-primary/20 transition-all duration-300 hover:scale-[1.07] px-6 py-6 flex items-center gap-2"
+            className="w-full md:w-50 rounded-full border-white/20 backdrop-blur-md text-primary hover:border-primary/50 shadow-md hover:shadow-primary/20 transition-all duration-300 hover:scale-[1.07] px-6 py-6 flex items-center gap-2"
           >
             <Copy className="size-4" /> Copy Email
           </Button>
         </div>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }

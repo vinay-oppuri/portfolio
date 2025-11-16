@@ -34,29 +34,37 @@ export default function ProjectsSection() {
   }, [api])
 
   return (
-    <section id="projects" className="snap-start h-screen relative overflow-hidden flex flex-col items-center justify-center px-4">
+    <motion.section
+      initial={{ opacity: 0, scale: 0.98, y: 20 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.5 }}
+      id="projects"
+      className="snap-start h-screen relative overflow-hidden flex flex-col items-center justify-center px-4"
+    >
       {/* Aurora Background */}
       <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-[radial-gradient(circle_at_center,theme(colors.primary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow" />
-        <div className="absolute bottom-0 right-0 w-[700px] h-[700px] bg-[radial-gradient(circle_at_center,theme(colors.secondary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow delay-2000" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[650px] bg-[radial-gradient(circle_at_center,theme(colors.primary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow" />
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,theme(colors.secondary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow delay-2000" />
       </div>
 
       {/* Floating Blobs */}
       <motion.div
-        className="absolute top-32 right-20 w-32 h-32 bg-primary/10 rounded-full blur-xl -z-10"
-        animate={{ y: [0, -20, 0], x: [0, 12, 0] }}
+        className="absolute top-32 right-16 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-10"
+        animate={{ y: [0, -18, 0], x: [0, 10, 0] }}
         transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
       />
+
       <motion.div
-        className="absolute bottom-32 left-20 w-28 h-28 bg-secondary/10 rounded-full blur-xl -z-10"
-        animate={{ y: [0, 20, 0], x: [0, -12, 0] }}
+        className="absolute bottom-28 left-16 w-20 h-20 bg-secondary/10 rounded-full blur-xl -z-10"
+        animate={{ y: [0, 18, 0], x: [0, -10, 0] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
 
-      <div className="container max-w-screen-xl mx-auto px-8 md:px-4">
+      <div className="container max-w-screen-xl mx-auto px-4">
         {/* Heading */}
         <motion.div
-          className="text-center mb-14"
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -65,18 +73,18 @@ export default function ProjectsSection() {
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight bg-gradient-to-r from-primary via-primary/70 to-secondary bg-clip-text text-transparent">
             Featured Projects
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
+          <p className="mt-3 text-base md:text-lg text-muted-foreground">
             A selection of projects that showcase my skills and passion.
           </p>
         </motion.div>
 
         {/* Carousel */}
         <Carousel setApi={setApi} className="w-full max-w-5xl mx-auto">
-          <CarouselContent className="p-0 md:p-8">
+          <CarouselContent className="p-0 md:p-6">
             {projectsData.map((project, index) => (
               <CarouselItem
                 key={index}
-                className="h-110 md:basis-1/2 lg:basis-1/3"
+                className="h-100 md:h-110 lg:h-[480px] md:basis-1/2 lg:basis-1/3"
               >
                 <motion.div
                   variants={cardVariants}
@@ -84,10 +92,16 @@ export default function ProjectsSection() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 flex flex-col h-full"
+                  className="
+                    bg-white/5 dark:bg-white/5 backdrop-blur-xl 
+                    border border-white/10 rounded-2xl 
+                    overflow-hidden shadow-lg 
+                    hover:shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] 
+                    transition-all duration-300 flex flex-col h-full
+                  "
                 >
                   {/* Image */}
-                  <div className="relative aspect-video w-full">
+                  <div className="relative w-full aspect-[4/2]">
                     <Image
                       src={project.imageUrl}
                       alt={project.title}
@@ -97,42 +111,48 @@ export default function ProjectsSection() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-grow">
-                    <h3 className="text-lg font-semibold mb-2 text-primary drop-shadow-sm">
-                      {project.title}
-                    </h3>
+                  <div className="p-4 md:p-5 flex flex-col justify-between h-full">
+                    {/* TOP */}
+                    <div>
+                      <h3 className="text-base md:text-lg font-semibold mb-2 text-primary">
+                        {project.title}
+                      </h3>
 
-                    <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
-                      {project.description}
-                    </p>
+                      <p className="text-muted-foreground text-xs md:text-sm leading-relaxed">
+                        {project.description}
+                      </p>
 
-                    <div className="flex flex-wrap gap-2 mt-4">
-                      {project.tags.map((tag, i) => (
-                        <Badge
-                          key={i}
-                          variant="secondary"
-                          className="px-2 py-1 text-xs rounded-md"
-                        >
-                          {tag}
-                        </Badge>
-                      ))}
+                      <div className="flex flex-wrap gap-2 mt-3">
+                        {project.tags.map((tag, i) => (
+                          <Badge
+                            key={i}
+                            variant="secondary"
+                            className="px-2 py-1 text-[8px] md:text-[10px] rounded-md"
+                          >
+                            {tag}
+                          </Badge>
+                        ))}
+                      </div>
                     </div>
 
-                    {/* Links */}
-                    <div className="flex items-center gap-4 mt-6">
+                    {/* BOTTOM — ALWAYS VISIBLE */}
+                    <div className="flex items-center gap-4 mt-4 pt-3 border-t border-white/10">
                       <Link
                         href={project.liveUrl}
                         target="_blank"
-                        className="flex items-center gap-1 text-sm text-primary hover:underline"
+                        className="flex items-center gap-1 text-xs md:text-sm text-primary hover:underline"
                       >
-                        <ExternalLink className="h-4 w-4" /> Live Demo
+                        <ExternalLink className="h-3 w-3 md:h-4 md:w-4" />
+                        Live Demo
                       </Link>
+
                       <Link
                         href={project.githubUrl}
                         target="_blank"
-                        className="flex items-center gap-1 text-sm text-primary hover:underline"
+                        className="flex items-center gap-1 text-xs md:text-sm text-primary hover:underline"
                       >
-                        <Github className="h-4 w-4" /> Source Code
+                        <Github className="h-3 w-3 md:h-4 md:w-4" />
+                        Source Code
                       </Link>
                     </div>
                   </div>
@@ -150,14 +170,12 @@ export default function ProjectsSection() {
           {Array.from({ length: count }).map((_, i) => (
             <button
               key={i}
-              className={`h-2 w-2 rounded-full transition-all ${
-                current === i ? "bg-primary w-4" : "bg-muted"
-              }`}
+              className={`h-2 w-2 rounded-full transition-all ${current === i ? "bg-primary w-4" : "bg-muted"}`}
               onClick={() => api?.scrollTo(i)}
             />
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }

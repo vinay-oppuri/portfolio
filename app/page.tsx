@@ -11,9 +11,8 @@ import LightRays from "@/components/react-bits/LightRays"
 export default function Home() {
   return (
     <div className="relative flex flex-col min-h-screen">
-      <div className="fixed inset-0 -z-10 w-full h-full pointer-events-none">
-
-        <div className="relative w-full h-[300vh] md:h-[600px]">
+      <div className="h-screen overflow-y-scroll snap-y snap-proximity scroll-smooth">
+        <div className="fixed inset-0 -z-10 pointer-events-none">
           <LightRays
             raysOrigin="top-center"
             raysColor="#00ffff"
@@ -27,12 +26,12 @@ export default function Home() {
             className="custom-rays"
           />
         </div>
+        <HeroSection />
+        <AboutSection />
+        <SkillsSection />
+        <ProjectsSection />
+        <ContactSection />
       </div>
-      <HeroSection />
-      <AboutSection />
-      <SkillsSection />
-      <ProjectsSection />
-      <ContactSection />
       <ScrollTop />
     </div>
   )
