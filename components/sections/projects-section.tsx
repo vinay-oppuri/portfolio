@@ -40,27 +40,8 @@ export default function ProjectsSection() {
       transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: false, amount: 0.5 }}
       id="projects"
-      className="snap-start h-screen relative overflow-hidden flex flex-col items-center justify-center px-4"
+      className="min-h-screen overflow-hidden flex flex-col items-center justify-center px-4"
     >
-      {/* Aurora Background */}
-      <div className="absolute inset-0 -z-10 pointer-events-none">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[900px] h-[650px] bg-[radial-gradient(circle_at_center,theme(colors.primary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow" />
-        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[radial-gradient(circle_at_center,theme(colors.secondary/30),transparent_70%)] blur-3xl opacity-40 animate-pulse-slow delay-2000" />
-      </div>
-
-      {/* Floating Blobs */}
-      <motion.div
-        className="absolute top-32 right-16 w-24 h-24 bg-primary/10 rounded-full blur-xl -z-10"
-        animate={{ y: [0, -18, 0], x: [0, 10, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute bottom-28 left-16 w-20 h-20 bg-secondary/10 rounded-full blur-xl -z-10"
-        animate={{ y: [0, 18, 0], x: [0, -10, 0] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-
       <div className="container max-w-screen-xl mx-auto px-4">
         {/* Heading */}
         <motion.div
@@ -82,23 +63,14 @@ export default function ProjectsSection() {
         <Carousel setApi={setApi} className="w-full max-w-5xl mx-auto">
           <CarouselContent className="p-0 md:p-6">
             {projectsData.map((project, index) => (
-              <CarouselItem
-                key={index}
-                className="h-100 md:h-110 lg:h-[480px] md:basis-1/2 lg:basis-1/3"
-              >
+              <CarouselItem key={index} className="h-100 md:h-110 lg:h-[480px] md:basis-1/2 lg:basis-1/3">
                 <motion.div
                   variants={cardVariants}
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="
-                    bg-white/5 dark:bg-white/5 backdrop-blur-xl 
-                    border border-white/10 rounded-2xl 
-                    overflow-hidden shadow-lg 
-                    hover:shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] 
-                    transition-all duration-300 flex flex-col h-full
-                  "
+                  className="bg-white/5 dark:bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl overflow-hidden shadow-lg hover:shadow-primary/30 hover:-translate-y-1 hover:scale-[1.02] transition-all duration-300 flex flex-col h-full "
                 >
                   {/* Image */}
                   <div className="relative w-full aspect-[4/2]">

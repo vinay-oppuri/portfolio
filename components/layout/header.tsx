@@ -6,10 +6,9 @@ import { useTheme } from "next-themes"
 import { Moon, Sun } from "lucide-react"
 import { navLinks } from "@/lib/data"
 import { Button } from "@/components/ui/button"
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa"
+import { FaGithub } from "react-icons/fa"
 import Image from "next/image"
 import useSound from "use-sound"
-import GlassSurface from "../react-bits/GlassSurface"
 
 export default function Header() {
   const [mounted, setMounted] = useState(false)
@@ -26,36 +25,21 @@ export default function Header() {
 
   const ThemeToggle = () => {
     return (
-      <GlassSurface
-          width={33}
-          height={33}
-          borderRadius={26}
-          opacity={0.65}
-          brightness={80}
-          displace={6}
-          distortionScale={-120}
-          redOffset={12}
-          greenOffset={20}
-          blueOffset={28}
-          mixBlendMode="screen"
-        >
       <Button
         variant="ghost"
         size="icon"
         onClick={switchTheme}
         aria-label="Toggle theme"
-        className="rounded-full"
+        className="rounded-full bg-white/5 dark:bg-white/5 backdrop-blur-md border border-white/10 shadow-lg hover:shadow-primary/20 hover:border-primary/30 transition-all duration-300"
       >
         {theme === "dark" ? (<Sun className="size-4 text-yellow-400" />) : (<Moon className="size-4 text-blue-600" />)}
       </Button>
-      </GlassSurface>
     )
   }
 
   return (
     <header className="fixed z-50 top-0 left-0 right-0 px-0 md:px-20 md:py-2 rounded-full md:border-none backdrop-blur-xs md:backdrop-blur-none">
       <div className="container h-16 max-w-screen-2xl mx-auto flex items-center justify-between px-4">
-
         {/* LOGO */}
         <Link href="/" className="flex items-center text-xl font-bold px-2">
           <Image
@@ -75,63 +59,25 @@ export default function Header() {
           <span className="text-xl md:text-3xl text-orange-500">.AI</span>
         </Link>
 
-        {/* DESKTOP NAV */}
-        <GlassSurface
-          width="auto"
-          height={52}
-          borderRadius={26}
-          opacity={0.65}
-          brightness={80}
-          displace={6}
-          distortionScale={-120}
-          redOffset={12}
-          greenOffset={20}
-          blueOffset={28}
-          mixBlendMode="screen"
-          className="hidden md:flex"
-        >
-          <div className="flex items-center px-6 py-3 gap-6 text-sm font-medium">
-            {navLinks.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="text-foreground hover:border-b-2"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </GlassSurface>
+
+        <nav className="hidden md:flex items-center gap-6 px-8 py-4 rounded-full bg-white/10 dark:bg-white/5 border border-white/20 backdrop-blur-xl shadow-lg shadow-purple-500/10 text-sm font-semibold">
+          {navLinks.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="text-shadow-amber-100 hover:border-b-2"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
 
         {/* RIGHT SECTION */}
         <div className="flex items-center gap-2">
-          <GlassSurface
-            width={120}
-            height={40}
-            borderRadius={26}
-            opacity={0.65}
-            brightness={80}
-            displace={6}
-            distortionScale={-120}
-            redOffset={12}
-            greenOffset={20}
-            blueOffset={28}
-            mixBlendMode="screen"
-          >
-            <div className="flex items-center gap-3 px-5 py-2">
-              <Link href="https://www.linkedin.com/in/vinay-reddy-9aa439295" target="_blank">
-                <FaLinkedin className="size-5 text-muted-foreground hover:text-primary" />
-              </Link>
-              <Link href="https://github.com/vinay-oppuri" target="_blank">
-                <FaGithub className="size-5 text-muted-foreground hover:text-primary" />
-              </Link>
-              <Link href="https://instagram.com/_v1nzy" target="_blank">
-                <FaInstagram className="size-5 text-muted-foreground hover:text-primary" />
-              </Link>
-            </div>
-          </GlassSurface>
-
-          {/* THEME TOGGLE */}
+          <Link href="https://github.com/vinay-oppuri" target="_blank" className="flex items-center gap-3 px-5 py-2 bg-white/5 backdrop-blur-md border border-white/10 shadow-lg rounded-full hover:shadow-xl hover:shadow-white/20">
+            <span className="font-semibold text-muted-foreground text-md">Github</span>
+            <FaGithub className="size-7 text-muted-foreground hover:text-primary" />
+          </Link>
           <ThemeToggle />
         </div>
       </div>
