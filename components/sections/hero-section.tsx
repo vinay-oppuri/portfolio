@@ -1,5 +1,7 @@
 "use client"
 
+import Image from "next/image"
+import Link from "next/link"
 import { motion } from "framer-motion"
 import type { Variants } from "framer-motion"
 import { Button } from "@/components/ui/button"
@@ -65,15 +67,10 @@ export default function HeroSection() {
           <a href="/resume.pdf" download>
             <Button
               size="lg"
-              className="relative overflow-hidden px-10 py-6 rounded-full font-semibold text-white bg-gradient-to-r from-[#7F5BFF] via-[#8A4DFF] to-[#4BD0FF] shadow-[0_0_25px_rgba(139,92,246,0.45)] hover:shadow-[0_0_45px_rgba(139,92,246,0.7)] hover:scale-[1.07] transition-all duration-500 ease-out">
-              <span className="relative z-10 flex items-center gap-2">
-                Download Resume <ArrowDown className="w-5 h-5" />
-              </span>
-
-              {/* animated sheen */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/25 to-transparent translate-x-[-150%] skew-x-12 group-hover:translate-x-[200%] transition-all duration-700 ease-out" />
+              className="w-60 bg-gradient-to-r from-primary to-secondary text-white font-mono rounded-full transition-all duration-300 hover:scale-110 hover:shadow-primary/40 hover:shadow-2xl py-6"
+            >
+              Download Resume <ArrowDown className="size-4" />
             </Button>
-
           </a>
         </motion.div>
       </motion.div>
